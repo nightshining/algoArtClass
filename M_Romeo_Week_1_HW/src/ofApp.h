@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include "ofMain.h"
@@ -19,7 +20,24 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
+    
+    ///KEYS 1 - 4 for each exploration
+    bool exploration1, exploration2, exploration3, exploration4;
+
+    
+    /// #Exploration 1 ///
+
     int cirPosX, cirPosY, radius, cirResolution;
-    ofPoint triPos1, triPos2, triPos3;
+    int rectW, rectH;
     int w, h;
+    
+    /// #Exploration 2 ///
+    
+    int colorRectPosX, colorRectPosY, colorRectSize;
+    
+    /// #Exploration 3 ///
+    
+    ofImage img;
+    int val1, val2, val3;
+
 };
