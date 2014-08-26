@@ -38,7 +38,7 @@ void ofApp::setup(){
             point1.set(x, y);
             center1.set(w * 0.50, h * 0.50); // put center of orb at 10 percent x and y
             float dist1 = point1.distance(center1);
-            int redVal = ofMap(dist1, 0, w, 255, 0, true);
+            int redVal = ofMap(dist1, 0, w, 0, 255, true);
 			
             val1 = redVal;
 
@@ -68,11 +68,47 @@ void ofApp::setup(){
     
     img.update();
     /////
-
+    
+    
+    /// #Exploration 4 ///
+    
+    ///Animation: in computer programming, change of parameter over time
+    
+    circX = ofGetWidth() * 0.50;
+    circY = 0;
+    circRadius = 10;
+    circColor = ofColor::black;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
+
+
+    if (circX < ofGetMouseX()) {
+        
+        circX = circX + ofMap(ofGetMouseX(), 0, w, 0, 10);
+    } else {
+        
+        circX = circX - ofMap(ofGetMouseX(), 0, w, 10, 0);
+    }
+    
+    circY += 0.10;
+    
+    circSin = 75 * sin(circY);
+
+    alpha = ofMap(circSin, -75, 75, 10, 200);
+    
+    circRadius = circRadius + 1.0;
+
+    if (circRadius > 100) {
+        circRadius = 10;
+    }
+    
+    circColor.b = circColor.b + 1;
+    
+    if (circColor.b > 200) {
+        circColor.b = 15;
+    }
 
 }
 
@@ -137,7 +173,6 @@ void ofApp::draw(){
         
         }
         
-        
         ofPopStyle();
     }
     
@@ -151,6 +186,29 @@ void ofApp::draw(){
     img.draw(0,0);
         
     }
+    
+    
+    /// #Exploration 4 ///
+    
+    if (exploration4) {
+        
+        ofPushStyle();
+        ofSetCircleResolution(35);
+        ofSetColor(255);
+        ofNoFill();
+        ofCircle(circX, ofGetHeight() * 0.50 + circSin, 100);
+        ofSetColor(ofColor::crimson, alpha);
+        ofFill();
+        ofCircle(circX, ofGetHeight() * 0.50 + circSin, 100);
+        ofSetColor(ofColor::whiteSmoke);
+        ofCircle(ofGetWidth() * 0.50, ofGetHeight() * 0.50, circRadius);
+        ofSetColor(circColor);
+        ofCircle(ofGetWidth() * 0.50, ofGetHeight() * 0.20, 50);
+        
+        ofPopStyle();
+        
+    }
+
 
 }
 

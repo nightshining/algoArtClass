@@ -3,7 +3,7 @@
 
 #include "ofMain.h"
 
-class ofApp : public ofBaseApp{
+class ofApp : public ofBaseApp {
 
 	public:
 		void setup();
@@ -39,5 +39,11 @@ class ofApp : public ofBaseApp{
     
     ofImage img;
     int val1, val2, val3;
-
+    
+    /// #Exploration 4 ///
+    float circX, circY, circSin;
+    float circRadius;
+    ofColor circColor;
+    int alpha;
+    
 };
