@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>203BD7C5-58F0-4648-AD67-C4916671D045</string>
+	<key>IDESourceControlProjectName</key>
+	<string>M_Romeo_Week_2_HW</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0B5F392E-081F-4909-B671-8608B6F32396</key>
+		<string>https://github.com/nightshining/algoArtClass.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>M_Romeo_Week_2_HW/M_Romeo_Week_2_HW.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0B5F392E-081F-4909-B671-8608B6F32396</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/nightshining/algoArtClass.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0B5F392E-081F-4909-B671-8608B6F32396</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0B5F392E-081F-4909-B671-8608B6F32396</string>
+			<key>IDESourceControlWCCName</key>
+			<string>algoArtClass</string>
+		</dict>
+	</array>
+</dict>
+</plist>

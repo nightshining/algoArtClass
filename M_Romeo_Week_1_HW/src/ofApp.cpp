@@ -98,17 +98,9 @@ void ofApp::update(){
 
     alpha = ofMap(circSin, -75, 75, 10, 200);
     
-    circRadius = circRadius + 1.0;
-
-    if (circRadius > 100) {
-        circRadius = 10;
-    }
+    circRadius = ofMap(circSin, -75, 75, 10, 50);
     
-    circColor.b = circColor.b + 1;
-    
-    if (circColor.b > 200) {
-        circColor.b = 15;
-    }
+    circColor.a  = ofMap(circSin, -75, 75, 50, 240);
 
 }
 
@@ -203,7 +195,7 @@ void ofApp::draw(){
         ofSetColor(ofColor::whiteSmoke);
         ofCircle(ofGetWidth() * 0.50, ofGetHeight() * 0.50, circRadius);
         ofSetColor(circColor);
-        ofCircle(ofGetWidth() * 0.50, ofGetHeight() * 0.20, 50);
+        ofCircle(ofGetWidth() * 0.50, ofGetHeight() * .50 + circSin, 50);
         
         ofPopStyle();
         
