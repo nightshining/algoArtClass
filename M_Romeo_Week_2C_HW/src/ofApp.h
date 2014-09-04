@@ -31,7 +31,7 @@ public:
     int imgWidth, imgHeight;
     int alpha;
     float complexityImg, scaleImg;
-
+   
     //ofSignedNoise: Returns -1.0 to 1.0
     //ofNoise: Returns 0.0 to 1.0
 };

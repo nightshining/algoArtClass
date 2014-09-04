@@ -5,8 +5,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    ofBackground(ofColor::whiteSmoke);
-    ofSetLineWidth(2.0);
+    ofBackground(0);
+    ofSetLineWidth(1.0);
     ofSetCircleResolution(35);
     circPos.set(ofGetWidth() * .5, ofGetHeight() * .5);
     radius = 50;
@@ -27,7 +27,7 @@ void ofApp::update(){
     scale = ofMap(mouseY, 0, ofGetHeight(), 0.0, 2.0, true);
     
     //img
-    complexityImg = ofMap(mouseX, 0, ofGetWidth(), 0.001, 0.1, true);
+    complexityImg = ofMap(mouseX, 0, ofGetWidth(), 0.001, 0.009, true);
     scaleImg = ofMap(mouseY, 0, ofGetHeight(), 0, 255, true);
     
     for (int x = 0; x < imgWidth; x++){
@@ -35,9 +35,9 @@ void ofApp::update(){
             
             int red = ofNoise(x * complexityImg, y * complexityImg) * scaleImg;
             
-            int green = ofNoise(x * complexityImg, y * complexityImg, ofGetElapsedTimef()) * scaleImg;
+            //int green = ofNoise(x * complexityImg, y * complexityImg, ofGetElapsedTimef()) * scaleImg;
             
-            int blue = ofNoise(x * y * complexityImg * 0.01, ofGetElapsedTimef() * 0.3) * scaleImg;
+            int blue = ofNoise(x * complexityImg * 0.01, ofGetElapsedTimef() * 0.3) * scaleImg;
             
             ofVec2f point, center;
             point.set(x, y);
@@ -55,7 +55,7 @@ void ofApp::update(){
 
             }
             
-            img.setColor(x, y, ofColor(red, green, blue, alpha));
+            img.setColor(x, y, ofColor(red, 0, blue, alpha));
             
 		}
 	}
@@ -85,30 +85,36 @@ void ofApp::draw(){
     }
     ofEndShape();
     
-    ofSetColor(ofColor::aqua, 200);
+    for (int i = 0; i < 5; i++) {
+    int sparkle = ofRandom(ofMap(i, 0, 5, 150, 255));
+    ofSetColor(sparkle, 0, sparkle, sparkle);
     ofNoFill();
     ofBeginShape();
     for (float radians = 0; radians < TWOPI; radians+=inc){
-        float x = sin(radians) * (radius + ofSignedNoise((ofGetElapsedTimef() + radians) * complexity) * 25 );
-        float y = cos(radians) * (radius + ofSignedNoise((ofGetElapsedTimef() + radians) * complexity) * 25 );
-        ofVertex(x, y);
+        float x = sin(radians) * (radius + ofSignedNoise((ofGetElapsedTimef() + radians + i) * (complexity)) * 25 );
+        float y = cos(radians) * (radius + ofSignedNoise((ofGetElapsedTimef() + radians + i) * (complexity)) * 25 );
+        ofVertex(x + i, y);
     }
     ofEndShape();
     
-    ofSetColor(ofColor::salmon, 250);
+    }
+    
+    ofSetColor(ofColor::white, 250);
     ofFill();
     
     for (float radians = 0; radians < .1; radians+=inc){
         float x = sin(radians) * (radius + ofSignedNoise((ofGetElapsedTimef() + radians) * complexity) * 25 );
         float y = cos(radians) * (radius + ofSignedNoise((ofGetElapsedTimef() + radians) * complexity) * 25 );
             
-        ofCircle(x, y, 10);
+        ofCircle(x, y, 5);
         
-    }
+
+        }
         
     } ofPopMatrix();
     
-    img.draw(ofGetWidth() * .37, ofGetHeight() * .34);
+    img.draw(ofGetWidth() * .37, ofGetHeight() * .33);
+
 
 }
 
@@ -124,6 +130,7 @@ void ofApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
+    
     
 }
 
