@@ -22,7 +22,7 @@ void ofApp::draw(){
         
         for (int j = 0; j < ofGetHeight(); j += 25) {
             
-            if (ofRandomf() > chancePercentage) {
+            if (ofRandomuf() > chancePercentage) {
                 ofSetColor(ofColor::whiteSmoke);
                 radius = ofRandom(10);
             } else {
@@ -34,9 +34,6 @@ void ofApp::draw(){
             ofFill();
             ofCircle(i, j, radius);
             
-            ofSetColor(ofColor::whiteSmoke);
-            ofNoFill();
-            ofCircle(i, j, radius);
         }
     }
 
